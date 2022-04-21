@@ -7,6 +7,21 @@ use App\Models\Color;
 
 class ColorXMLController extends Controller
 {
+    private function arrayToXml($array, &$xml){
+        foreach ($array as $key => $value) {
+            if(is_int($key)){
+                $key = "e";
+            }
+            if(is_array($value)){
+                $label = $xml->addChild($key);
+                $this->arrayToXml($value, $label);
+            }
+            else {
+                $xml->addChild($key, $value);
+            }
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,10 +31,7 @@ class ColorXMLController extends Controller
     {
         $data = Color::select(['name', 'color'])->paginate(5);
 
-        return response()->view('xml', compact('data'))->withHeaders([
-            'Content-Type' => 'application/xml',
-            'charset' => 'utf-8'
-        ]);
+        return arrayToXml($data);
         //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
