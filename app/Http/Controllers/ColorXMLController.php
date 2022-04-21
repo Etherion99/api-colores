@@ -14,12 +14,12 @@ class ColorXMLController extends Controller
      */
     public function index()
     {
-        return Color::select(['name', 'color'])->paginate(5);
+        $data = Color::select(['name', 'color'])->paginate(5);
 
-        /*return response()->view('xml', compact('data'))->withHeaders([
+        return response()->view('xml', compact('data'))->withHeaders([
             'Content-Type' => 'application/xml',
             'charset' => 'utf-8'
-        ]);*/
+        ]);
         //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
