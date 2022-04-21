@@ -7,20 +7,19 @@ use App\Models\Color;
 
 class ColorXMLController extends Controller
 {
-    function arrayToXml($array, &$xml){
-        foreach ($array as $key => $value) {
-            if(is_int($key)){
-                $key = "e";
+    function array_to_xml( $data, &$xml_data ) {
+        foreach( $data as $key => $value ) {
+            if( is_array($value) ) {
+                if( is_numeric($key) ){
+                    $key = 'item'.$key; //dealing with <0/>..<n/> issues
+                }
+                $subnode = $xml_data->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $xml_data->addChild("$key",htmlspecialchars("$value"));
             }
-            if(is_array($value)){
-                $label = $xml->addChild($key);
-                $this->arrayToXml($value, $label);
-            }
-            else {
-                $xml->addChild($key, $value);
-            }
-        }
-    }
+         }
+    }    
 
     /**
      * Display a listing of the resource.
@@ -31,7 +30,11 @@ class ColorXMLController extends Controller
     {
         $data = Color::select(['name', 'color'])->paginate(5);
 
-        return arrayToXml($data, true);
+        // creating object of SimpleXMLElement
+        $xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
+        
+        // function call to convert array to xml
+        array_to_xml($data, $xml_data);
         //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
