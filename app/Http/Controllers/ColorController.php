@@ -12,9 +12,9 @@ class ColorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return request->input('format');//Color::select(['name', 'color'])->get();
+        return Color::select(['name', 'color'])->paginate(5)->get();
     }
 
     /**
