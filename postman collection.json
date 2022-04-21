@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "1bff973d-7c3c-4d85-80b6-9d07d66ac178",
+		"name": "colors API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all colors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sebastian-trujillo.me/colores-back/api/colors",
+					"protocol": "http",
+					"host": [
+						"sebastian-trujillo",
+						"me"
+					],
+					"path": [
+						"colores-back",
+						"api",
+						"colors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get color by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sebastian-trujillo.me/colores-back/api/colors/5",
+					"protocol": "http",
+					"host": [
+						"sebastian-trujillo",
+						"me"
+					],
+					"path": [
+						"colores-back",
+						"api",
+						"colors",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save new color",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"red\",\r\n    \"color\": \"#FF0000\",\r\n    \"year\": 2010,\r\n    \"pantone\": \"17-1734\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sebastian-trujillo.me/colores-back/api/colors",
+					"protocol": "http",
+					"host": [
+						"sebastian-trujillo",
+						"me"
+					],
+					"path": [
+						"colores-back",
+						"api",
+						"colors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update color",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"green\",\r\n    \"color\": \"#00FF00\",\r\n    \"year\": 2015,\r\n    \"pantone\": \"17-1487\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sebastian-trujillo.me/colores-back/api/colors/11",
+					"protocol": "http",
+					"host": [
+						"sebastian-trujillo",
+						"me"
+					],
+					"path": [
+						"colores-back",
+						"api",
+						"colors",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete color",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sebastian-trujillo.me/colores-back/api/colors/11",
+					"protocol": "http",
+					"host": [
+						"sebastian-trujillo",
+						"me"
+					],
+					"path": [
+						"colores-back",
+						"api",
+						"colors",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
