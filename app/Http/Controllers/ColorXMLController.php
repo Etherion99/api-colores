@@ -7,7 +7,7 @@ use App\Models\Color;
 
 class ColorXMLController extends Controller
 {
-    private function arrayToXml($array, &$xml){
+    function arrayToXml($array, &$xml){
         foreach ($array as $key => $value) {
             if(is_int($key)){
                 $key = "e";
@@ -31,7 +31,7 @@ class ColorXMLController extends Controller
     {
         $data = Color::select(['name', 'color'])->paginate(5);
 
-        return arrayToXml($data);
+        return arrayToXml($data, true);
         //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
