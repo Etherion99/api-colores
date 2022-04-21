@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Color extends Model
 {
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name', 'color', 'pantone', 'year'];
 }
