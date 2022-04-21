@@ -35,7 +35,7 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        return Pokemon::create($request->all());
+        return Color::create($request->all());
     }
 
     /**
@@ -46,7 +46,7 @@ class ColorController extends Controller
      */
     public function show($id)
     {
-        return Pokemon::find($id);
+        return Color::find($id);
     }
 
     /**
@@ -69,7 +69,7 @@ class ColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Pokemon::where('id', $id)
+        return Color::where('id', $id)
             ->update($request->all());
     }
 
@@ -81,6 +81,6 @@ class ColorController extends Controller
      */
     public function destroy($id)
     {
-        return Pokemon::find($id)->delete();
+        return Color::find($id)->delete();
     }
 }
