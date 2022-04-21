@@ -19,7 +19,8 @@ class ColorXMLController extends Controller
             'Content-Type' => 'application/xml',
             'charset' => 'utf-8'
         ]);*/
-        return response()->xml(Color::select(['name', 'color'])->paginate(5));
+        return 'dsdsd';
+        //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
     /**
