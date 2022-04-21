@@ -26,6 +26,9 @@ Esta API es desarrollada par ala clínica de las Américas como parte del proces
     **Tipo de solicitud:** GET
     **Parámetros:** ninguno
     **Respuesta:** lista paginada de colores en formato JSON
+    
+![image](https://user-images.githubusercontent.com/37667366/164517255-213614f4-bebb-4806-91d8-e67d8c23fd2f.png)
+
 
 * /api/colors/:id 
     **Tipo de solicitud:** GET
