@@ -14,7 +14,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        return Color::select(['name', 'color'])->paginate(5)->get();
+        return Color::select(['name', 'color'])->paginate(5);
     }
 
     /**
