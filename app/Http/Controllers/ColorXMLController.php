@@ -34,7 +34,7 @@ class ColorXMLController extends Controller
         $xml_data = new \SimpleXMLElement('<?xml version="1.0"?><data></data>');
         
         // function call to convert array to xml
-        array_to_xml($data, $xml_data);
+        return $this->array_to_xml($data, $xml_data);
         //return response()->xml(Color::select(['name', 'color'])->paginate(5));
     }
 
